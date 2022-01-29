@@ -1,7 +1,57 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const LandingWrapper = styled.div`
-  height: 80vh;
+  height: 90vh;
   width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: ${({ color }) => (color === "dark" ? "#1D3557" : "#F1FAEE")};
+  /* background: red; */
+`;
+
+export const LeftLanding = styled.div`
+  height: 60%;
+  width: 50%;
+`;
+export const RightLanding = styled.div``;
+
+export const Title = styled.h1`
+  color: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
+  font-weight: 500;
+  span {
+    color: #e63946;
+    font-weight: 600;
+  }
+`;
+export const UlFeatures = styled.ul`
+  margin-block: 1rem 2.75rem;
+`;
+export const LiFeature = styled.li`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-block: 2rem;
+  font-size: 18px;
+  font-weight: 400;
+  color: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
+`;
+
+export const LiImage = styled.img`
+  height: 25px;
+  width: 25px;
+  margin-right: 0.75rem;
+`;
+
+export const CTA = styled(Link)`
+  text-decoration: none;
+  background: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
+  border: none;
+  padding: 0.75rem 1.75rem;
+  color: ${({ color }) => (color === "dark" ? "#E63946 " : "#F1FAEE")};
+  border-radius: 7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  /* margin-top: 1rem; */
 `;

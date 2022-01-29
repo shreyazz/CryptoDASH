@@ -7,25 +7,27 @@ const App = () => {
   const [theme, setTheme] = useState("light");
   return (
     <>
-      <NavBar />
+      <NavBar theme={theme} />
       <Routes>
-        <Route path="/landing" index element={<LandingPage theme={theme} />} />
+        <Route path="/" index element={<LandingPage theme={theme} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
-      <button
-        onClick={() => {
-          setTheme("light");
-        }}
-      >
-        light
-      </button>
-      <button
-        onClick={() => {
-          setTheme("dark");
-        }}
-      >
-        dark
-      </button>
+      <div style={{ position: "absolute", bottom: 0 }}>
+        <button
+          onClick={() => {
+            setTheme("light");
+          }}
+        >
+          light
+        </button>
+        <button
+          onClick={() => {
+            setTheme("dark");
+          }}
+        >
+          dark
+        </button>
+      </div>
     </>
   );
 };

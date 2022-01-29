@@ -1,14 +1,40 @@
 import React, { createContext } from "react";
 import { Link } from "react-router-dom";
-import { LogoLink } from "../StyledComponents/NavBarElemets";
-const NavBar = () => {
+import {
+  LogoLink,
+  Nav,
+  NormalLink,
+  ButtonPrimary,
+  ButtonSec,
+  RightNav,
+} from "../StyledComponents/NavBarElemets";
+
+const NavBar = ({ theme }) => {
   return (
     <>
-      <nav>
-        <LogoLink to="/landing" color="light">
+      <Nav color={theme}>
+        <LogoLink to="/" color={theme}>
           CryptoDASH
         </LogoLink>
-      </nav>
+        <RightNav>
+          <div>
+            <NormalLink color={theme} to="/crypto">
+              Crypto
+            </NormalLink>
+            <NormalLink color={theme} to="/news">
+              News
+            </NormalLink>
+          </div>
+          <div>
+            <ButtonSec color={theme} to="/login">
+              login
+            </ButtonSec>
+            <ButtonPrimary color={theme} to="/register">
+              Register
+            </ButtonPrimary>
+          </div>
+        </RightNav>
+      </Nav>
     </>
   );
 };
