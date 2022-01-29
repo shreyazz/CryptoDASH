@@ -9,7 +9,7 @@ const app = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/landing" index element={<LandingPage />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
     </>
