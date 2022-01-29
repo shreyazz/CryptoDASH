@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React from "react";
+import {LandingWrapper} from "../StyledComponents/LandingPageElements";
 const LandingPage = () => {
-  return(<>
-      {/* <MainWrapper> 
-      
-      </MainWrapper> */}
-  </>);
+  return (
+    <>
+        <LandingWrapper>
+            
+        </LandingWrapper>
+    </>
+  );
 };
 
 export default LandingPage;
