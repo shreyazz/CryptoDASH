@@ -1,9 +1,10 @@
 import React from "react";
 import {LandingWrapper} from "../StyledComponents/LandingPageElements";
-const LandingPage = () => {
+const LandingPage = ({theme}) => {
   return (
     <>
-        <LandingWrapper>
+
+        <LandingWrapper color={theme}>
             
         </LandingWrapper>
     </>

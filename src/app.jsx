@@ -1,19 +1,22 @@
-import React, { createContext } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
-export const theme = createContext("light");
 
-const app = () => {
+const App = () => {
+  const [theme, setTheme] = useState('light');
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path="/landing" element={<LandingPage />} />
+        
+        <Route path="/landing" index element={<LandingPage theme={theme} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
+      <button onClick={() => {setTheme('light')}}>light</button>
+      <button onClick={() => {setTheme('dark')}}>dark</button>
     </>
   );
 };
 
-export default app;
+export default App;
