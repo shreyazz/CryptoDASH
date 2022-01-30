@@ -28,6 +28,20 @@ export const Content = styled.div`
 
 export const Card = styled.div`
     width: 20rem;
-    height: 20rem;
+    /* height: 20rem; */
     background-color: red;
+`;
+
+export const Title = styled.div`
+    font-size: 1.5rem;
+`;
+
+export const Desc = styled.div`
+    font-style: italic;
+    font-size: 1rem;
+`;
+
+export const CoverImage = styled.img`
+    width: 100%;
+    height: auto;
 `;

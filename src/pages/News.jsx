@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NewsWrapper, Heading, Content, Card } from '../StyledComponents/NewsPageElements'
+import { NewsWrapper, Heading, Content, Card, Title, Desc, CoverImage } from '../StyledComponents/NewsPageElements'
 // const dotenv = require('dotenv');
 // dotenv.config();
 
@@ -31,7 +31,9 @@ const News = () => {
                                 items.map((item, index) => {
                                     return (
                                         <Card key={index}>
-                                            <div>{item.title}</div>
+                                            <CoverImage src={item.urlToImage} alt='cover' />
+                                            <Title><a href={item.url}>{item.title}</a></Title>
+                                            <Desc>{item.description}</Desc>
                                         </Card>
                                     )
                                 })
