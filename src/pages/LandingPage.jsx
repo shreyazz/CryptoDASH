@@ -8,6 +8,7 @@ import {
   LiFeature,
   LiImage,
   CTA,
+  MainImage,
 } from "../StyledComponents/LandingPageElements";
 import imgForLiLight from "../images/imgForLiLight.svg";
 import imgForLiDark from "../images/imgForLiDark.svg";
@@ -18,7 +19,6 @@ import mainImg1Light from "../images/main-1-light.svg";
 const LandingPage = ({ theme }) => {
   const mainImages = [mainImg, mainImg1];
   const [image, setImage] = useState(mainImg);
-
   const getRandomImage = () => {
     const randomIndex = Math.floor(Math.random() * mainImages.length);
     setImage(mainImages[randomIndex]);
@@ -31,10 +31,7 @@ const LandingPage = ({ theme }) => {
     }
   };
 
-  useEffect(() => {
-    getRandomImage();
-  }, []);
-
+  useEffect(getRandomImage, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <LandingWrapper color={theme}>
@@ -71,7 +68,7 @@ const LandingPage = ({ theme }) => {
           </CTA>
         </LeftLanding>
         <RightLanding>
-          <img src={image} alt="" />
+          <MainImage src={image} alt="" />
         </RightLanding>
       </LandingWrapper>
     </>
