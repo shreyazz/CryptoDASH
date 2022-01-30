@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   LandingWrapper,
   LeftLanding,
@@ -11,7 +11,30 @@ import {
 } from "../StyledComponents/LandingPageElements";
 import imgForLiLight from "../images/imgForLiLight.svg";
 import imgForLiDark from "../images/imgForLiDark.svg";
+import mainImg from "../images/main.svg";
+import mainImg1 from "../images/main-1.svg";
+import mainImg1Light from "../images/main-1-light.svg";
+
 const LandingPage = ({ theme }) => {
+  const mainImages = [mainImg, mainImg1];
+  const [image, setImage] = useState(mainImg);
+
+  const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * mainImages.length);
+    setImage(mainImages[randomIndex]);
+    if (mainImages[randomIndex] === mainImg1 && theme === "light") {
+      setImage(mainImg1Light);
+    } else if (mainImages[randomIndex] === mainImg1 && theme === "dark") {
+      setImage(mainImg1);
+    } else {
+      setImage(mainImg);
+    }
+  };
+
+  useEffect(() => {
+    getRandomImage();
+  }, []);
+
   return (
     <>
       <LandingWrapper color={theme}>
@@ -47,7 +70,9 @@ const LandingPage = ({ theme }) => {
             Get Started
           </CTA>
         </LeftLanding>
-        <RightLanding></RightLanding>
+        <RightLanding>
+          <img src={image} alt="" />
+        </RightLanding>
       </LandingWrapper>
     </>
   );

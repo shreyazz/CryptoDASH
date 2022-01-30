@@ -4,7 +4,42 @@
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
 }
-body{
-  position: relative;
+
+body {
+  /* position: relative; */
 }
 
+.toggler {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  width: 100px;
+  height: 40px;
+  border-radius: 2rem;
+  background-color: #a8dadc;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.toggler img {
+  height: 22px;
+  width: 22px;
+}
+/* transition effect on this element 👇🏻 */
+.toggle-ball {
+  position: absolute;
+  height: 29px;
+  width: 29px;
+  border-radius: 50%;
+  background: #457b9d;
+  transition: all 0.5s ease-in-out;
+}
+
+.goRight {
+  right: 10px;
+  transition: all 0.5s ease-in-out;
+}

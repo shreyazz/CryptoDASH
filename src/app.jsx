@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
-
+import sun from "./images/sun.svg";
+import moon from "./images/moon.svg";
 const App = () => {
   const [theme, setTheme] = useState("light");
+  const [isDark, setIsDark] = useState(false);
+  // state can't be changed from dark to light, so I have created another toggle state which switches b/w true and false.
+  // This 👇🏻 useEffect is triggered when the state changes and if the isDark state is true then the theme switches to 'dark' else 'light'
+
+  useEffect(() => {
+    isDark ? setTheme("dark") : setTheme("light");
+  }, [isDark]);
+
   return (
     <>
       <NavBar theme={theme} />
@@ -12,21 +21,17 @@ const App = () => {
         <Route path="/" index element={<LandingPage theme={theme} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
-      <div style={{ position: "absolute", bottom: 0 }}>
-        <button
-          onClick={() => {
-            setTheme("light");
-          }}
-        >
-          light
-        </button>
-        <button
-          onClick={() => {
-            setTheme("dark");
-          }}
-        >
-          dark
-        </button>
+      <div
+        className="toggler"
+        onClick={() => {
+          setIsDark(!isDark);
+        }}
+      >
+        {/* transition issue 👇🏻 (For more ref check index.css) */}
+        {/* if the theme is dark then the toggle ball should move to right, but it isn't moving smoothly even after using transition.. */}
+        <div className={`${isDark ? "goRight" : ""} toggle-ball`}></div>
+        <img src={sun} alt="" className="sun" />
+        <img src={moon} alt="" className="moon" />
       </div>
     </>
   );
