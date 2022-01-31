@@ -27,7 +27,7 @@ export const LogRegWrapper = styled.div`
 `;
 
 export const MainWrapper = styled.div`
-  height: 70vh;
+  height: 77vh;
   width: 60vh;
   border-radius: 1rem;
   margin: 0 auto;
@@ -35,7 +35,7 @@ export const MainWrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 0.75rem;
   background: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
 `;
 
@@ -45,14 +45,18 @@ export const Label = styled.label`
   color: ${({ color }) => (color === "light" ? "#F1FAEE" : "#1D3557")};
   font-size: 20px;
   font-weight: 600;
+  margin-left: 0.6rem;
 `;
 
 export const Input = styled.input`
   align-self: flex-start;
   margin-bottom: 1rem;
   width: 100%;
-  padding: 0.5rem;
-  color: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
+  padding: 0.7rem;
+  border-radius: 2rem;
+  border: 2px solid #457b9d;
+  color: "#1D3557";
+  font-size: 16px;
 `;
 
 export const H1 = styled.h1`
@@ -67,4 +71,9 @@ export const P = styled.p`
   margin-top: 1rem;
   text-decoration: underline;
   cursor: pointer;
+`;
+
+export const UserMessage = styled.p`
+  color: ${({ color }) => (color === "light" ? "#F1FAEE" : "#1D3557")};
+  margin-top: 0.5rem;
 `;

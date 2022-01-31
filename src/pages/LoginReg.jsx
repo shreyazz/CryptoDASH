@@ -5,6 +5,7 @@ import {
   P,
   H1,
   MainWrapper,
+  UserMessage,
 } from "../StyledComponents/LoginRegElements";
 import InputComponent from "../components/InputComponent";
 const LoginReg = ({ theme }) => {
@@ -55,8 +56,11 @@ const LoginReg = ({ theme }) => {
           )}
           <div className="lower-login">
             <H3 color={theme}>OR</H3>
+            <UserMessage color={theme}>
+              {!showReg ? "Not Registered Yet" : "Already a User?"}{" "}
+            </UserMessage>
             <P color={theme} onClick={() => setShowReg(!showReg)}>
-              {!showReg ? "Register" : "Login"}
+              {!showReg ? "Register Now" : "Login"}
             </P>
           </div>
         </MainWrapper>
