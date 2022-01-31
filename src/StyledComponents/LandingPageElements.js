@@ -9,9 +9,16 @@ export const LandingWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   background: ${({ color }) => (color === "dark" ? "#1D3557" : "#F1FAEE")};
-  /* background: red; */
   flex-wrap: wrap;
-  @media only screen and (max-width: 480px) {
+
+  @media only screen and (max-width: 85em) {
+    padding: 3rem 1rem;
+    height: auto;
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+
+  @media only screen and (max-width: 30em) {
     padding: 3rem 1rem;
     height: auto;
     flex-direction: column-reverse;
@@ -19,16 +26,30 @@ export const LandingWrapper = styled.div`
 `;
 
 export const LeftLanding = styled.div`
-  height: 60%;
   width: 50%;
-  @media only screen and (max-width: 480px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media only screen and (max-width: 85em) {
+    height: 100%;
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 30em) {
     width: 100%;
     text-align: center;
-    margin: 0 auto 5rem auto;
+    margin: 0 auto;
+    padding-bottom: 5rem;
   }
 `;
 export const RightLanding = styled.div`
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     margin: 2rem auto 4rem auto;
   }
 `;
@@ -40,15 +61,27 @@ export const Title = styled.h1`
     color: #e63946;
     font-weight: 600;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     width: 100%;
     text-align: center;
     font-size: 27px;
   }
 `;
 export const UlFeatures = styled.ul`
-  margin-block: 1rem 2.75rem;
-  @media only screen and (max-width: 480px) {
+  padding: 1rem 0 2.75rem 0;
+
+  @media only screen and (max-width: 85em) {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 70em) {
+    width: 85%;
+  }
+
+  @media only screen and (max-width: 30em) {
     width: 100%;
     display: flex;
     padding: 1rem;
@@ -63,11 +96,19 @@ export const LiFeature = styled.li`
   list-style: none;
   display: flex;
   align-items: center;
-  margin-block: 2rem;
+  padding: 1.5rem 0;
   font-size: 18px;
   font-weight: 400;
   color: ${({ color }) => (color === "dark" ? "#F1FAEE" : "#1D3557")};
-  @media only screen and (max-width: 480px) {
+
+  @media only screen and (max-width: 85em) {
+    width: 80%;
+    align-items: flex-start;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  @media only screen and (max-width: 30em) {
     font-size: 17px;
   }
 `;
@@ -76,7 +117,7 @@ export const LiImage = styled.img`
   height: 25px;
   width: 25px;
   margin-right: 0.75rem;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     height: 22px;
     width: 22px;
   }
@@ -91,13 +132,13 @@ export const CTA = styled(Link)`
   border-radius: 7rem;
   text-transform: uppercase;
   font-weight: 600;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     margin: 0 auto;
   }
 `;
 
 export const MainImage = styled.img`
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     height: 100%;
     width: 100%;
   }

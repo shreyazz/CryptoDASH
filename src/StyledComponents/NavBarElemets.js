@@ -6,7 +6,7 @@ export const LogoLink = styled(Link)`
   text-decoration: none;
   font-size: 30px;
   font-weight: 600;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     font-size: 24px;
   }
 `;
@@ -57,7 +57,7 @@ export const ButtonSec = styled(Link)`
   border: 2px solid #457b9d;
   margin-right: 1.5rem;
   transition: all 0.4s ease;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     padding: 0.4rem 0.75rem;
     margin-right: 0.5rem;
   }
@@ -76,7 +76,7 @@ export const RightNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     display: none;
   }
 `;
@@ -96,7 +96,7 @@ export const Cross = styled(FaTimes)`
   display: none;
   z-index: 4;
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     color: ${({ color }) => (color === "dark" ? "#E63946" : "#1D3557")};
     display: inline;
   }
@@ -104,7 +104,7 @@ export const Cross = styled(FaTimes)`
 
 export const NavForMobile = styled.div`
   display: none;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 30em) {
     color: ${({ color }) => (color === "dark" ? "#E63946" : "#1D3557")};
     position: absolute;
     left: 0;
