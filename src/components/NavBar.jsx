@@ -26,10 +26,10 @@ const NavBar = ({ theme }) => {
             </NormalLink>
           </div>
           <div>
-            <ButtonSec color={theme} to="/login">
+            <ButtonSec color={theme} to="/onboarding">
               login
             </ButtonSec>
-            <ButtonPrimary color={theme} to="/register">
+            <ButtonPrimary color={theme} to="/onboarding">
               Register
             </ButtonPrimary>
           </div>

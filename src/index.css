@@ -32,7 +32,6 @@ body {
   }
 }
 
-
 .toggler img {
   height: 22px;
   width: 22px;
@@ -40,10 +39,11 @@ body {
 /* transition effect on this element 👇🏻 */
 .toggle-ball {
   position: absolute;
-  height: 40px;
-  width: 40px;
-  left: 0;
-  top: 0;
+  height: 32px;
+  width: 32px;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 50%;
   background: #457b9d;
   transition: all 0.5s ease-in-out;
@@ -52,3 +52,17 @@ body {
 .goRight {
   left: 60px;
 }
+
+.inputWrapper {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lower-login {
+  text-align: center;
+}
+

@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
 import sun from "./images/sun.svg";
 import moon from "./images/moon.svg";
+import LoginReg from "./pages/LoginReg";
 const App = () => {
   const [theme, setTheme] = useState("light");
   const [isDark, setIsDark] = useState(false);
@@ -19,6 +20,7 @@ const App = () => {
       <NavBar theme={theme} />
       <Routes>
         <Route path="/" index element={<LandingPage theme={theme} />} />
+        <Route path="/onboarding" index element={<LoginReg theme={theme} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
       <div
