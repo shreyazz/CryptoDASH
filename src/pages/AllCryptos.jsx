@@ -11,35 +11,26 @@ import {
   SelectCurrency,
   SelectDiv,
 } from "../StyledComponents/CryptoElements";
-const Crypto = ({ theme }) => {
-  const [coins, setCoins] = useState({});
-  const [favCoins, setFavCoins] = useState([]);
+const AllCryptos = ({ theme }) => {
+  const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState("usd");
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins")
       .then((res) => res.json())
       .then((res) => setCoins(res));
   }, []);
-  const getFavCoin = () => {
-    setFavCoins(
-      coins.filter(
-        (coin) =>
-          coin.id === "bitcoin" ||
-          coin.id === "solana" ||
-          coin.id === "ethereum" ||
-          coin.id === "dogecoin"
-      )
-    );
-  };
 
+  const getAllCoins = () => {
+    fetch("https://api.coingecko.com/api/v3/coins")
+      .then((res) => res.json())
+      .then((res) => setCoins(res));
+  };
   return (
     <>
       <CryptoWrapper color={theme}>
         <OverView>
           <div>
-            <HeadOverview color={theme}>
-              Favourite crypto currencies
-            </HeadOverview>
+            <HeadOverview color={theme}>All crypto currencies</HeadOverview>
             <LastUpdated color={theme}>
               Last Updated:{" "}
               {coins[0] === undefined || null
@@ -68,14 +59,14 @@ const Crypto = ({ theme }) => {
                 <option value="gbp">GBP</option>
               </SelectCurrency>
             </SelectDiv>
-            <ReloadButton color={theme} onClick={getFavCoin}>
+            <ReloadButton color={theme} onClick={getAllCoins}>
               {" "}
               <SyncIcon color={theme} />{" "}
             </ReloadButton>
           </div>
         </OverView>
         <CardHolder color={theme}>
-          {favCoins.map((coin) => {
+          {coins.map((coin) => {
             return (
               <Card
                 currency={currency.toUpperCase()}
@@ -96,4 +87,4 @@ const Crypto = ({ theme }) => {
   );
 };
 
-export default Crypto;
+export default AllCryptos;

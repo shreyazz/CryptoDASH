@@ -21,8 +21,11 @@ const NavBar = ({ theme }) => {
         </LogoLink>
         <RightNav>
           <div>
-            <NormalLink color={theme} to="/crypto">
-              Crypto
+            <NormalLink color={theme} to="/fav-crypto">
+              Favourite Cryptos
+            </NormalLink>
+            <NormalLink color={theme} to="/all-crypto">
+              All Cryptos
             </NormalLink>
           </div>
           <div>

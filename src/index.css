@@ -49,6 +49,11 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.flex-it {
+  display: flex;
+  align-items: center;
+}
+
 .goRight {
   left: 60px;
 }
@@ -65,4 +70,3 @@ body {
 .lower-login {
   text-align: center;
 }
-

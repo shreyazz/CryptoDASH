@@ -5,6 +5,8 @@ import LandingPage from "./pages/LandingPage";
 import sun from "./images/sun.svg";
 import moon from "./images/moon.svg";
 import LoginReg from "./pages/LoginReg";
+import Crypto from "./pages/Crypto";
+import AllCryptos from "./pages/AllCryptos";
 const App = () => {
   const [theme, setTheme] = useState("light");
   const [isDark, setIsDark] = useState(false);
@@ -20,6 +22,12 @@ const App = () => {
       <NavBar theme={theme} />
       <Routes>
         <Route path="/" index element={<LandingPage theme={theme} />} />
+        <Route path="/fav-crypto" index element={<Crypto theme={theme} />} />
+        <Route
+          path="/all-crypto"
+          index
+          element={<AllCryptos theme={theme} />}
+        />
         <Route path="/onboarding" index element={<LoginReg theme={theme} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>

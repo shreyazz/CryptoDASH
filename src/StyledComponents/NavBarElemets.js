@@ -29,6 +29,7 @@ export const NormalLink = styled(Link)`
   font-size: 17px;
   text-decoration: none;
   font-weight: 500;
+  margin-right: 100px;
 `;
 
 export const ButtonPrimary = styled(Link)`
@@ -70,7 +71,7 @@ export const ButtonSec = styled(Link)`
 `;
 
 export const RightNav = styled.div`
-  width: 500px;
+  width: 700px;
   height: 100%;
   /* background-color: red; */
   display: flex;
