@@ -9,6 +9,7 @@ import Crypto from "./pages/Crypto";
 import AllCryptos from "./pages/AllCryptos";
 const App = () => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [theme, setTheme] = useState("light");
   const [isDark, setIsDark] = useState(false);
   // state can't be changed from dark to light, so I have created another toggle state which switches b/w true and false.
@@ -20,6 +21,7 @@ const App = () => {
 
   window.addEventListener('resize', () => {
     setWindowSize(window.innerWidth);
+    setWindowHeight(window.innerHeight);
   })
 
   return (
@@ -33,7 +35,7 @@ const App = () => {
           index
           element={<AllCryptos theme={theme} windowsize={windowSize} />}
         />
-        <Route path="/onboarding" index element={<LoginReg theme={theme} windowsize={windowSize} />} />
+        <Route path="/onboarding" index element={<LoginReg theme={theme} windowsize={windowSize} windowheight={windowHeight} />} />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
       <div
