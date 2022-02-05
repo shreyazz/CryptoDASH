@@ -11,7 +11,7 @@ import {
   NavForMobile,
 } from "../StyledComponents/NavBarElemets";
 
-const NavBar = ({ theme }) => {
+const NavBar = ({ theme, windowsize }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
@@ -21,18 +21,18 @@ const NavBar = ({ theme }) => {
         </LogoLink>
         <RightNav>
           <div>
-            <NormalLink color={theme} to="/fav-crypto">
+            <NormalLink color={theme} windowsize={windowsize} to="/fav-crypto">
               Favourite Cryptos
             </NormalLink>
-            <NormalLink color={theme} to="/all-crypto">
+            <NormalLink color={theme} windowsize={windowsize} to="/all-crypto">
               All Cryptos
             </NormalLink>
           </div>
           <div>
-            <ButtonSec color={theme} to="/onboarding">
+            <ButtonSec color={theme} windowsize={windowsize} to="/onboarding">
               login
             </ButtonSec>
-            <ButtonPrimary color={theme} to="/onboarding">
+            <ButtonPrimary color={theme} windowsize={windowsize} to="/onboarding">
               Register
             </ButtonPrimary>
           </div>
@@ -44,10 +44,11 @@ const NavBar = ({ theme }) => {
         )}
         {
           <>
-            <NavForMobile color={theme} show={isMenuOpen}>
+            <NavForMobile color={theme} show={isMenuOpen} windowsize={windowsize}>
               <div>
                 <NormalLink
                   color={theme}
+                  windowsize={windowsize}
                   to="/crypto"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
@@ -56,14 +57,16 @@ const NavBar = ({ theme }) => {
               </div>
               <ButtonSec
                 color={theme}
-                to="/login"
+                windowsize={windowsize}
+                to="/onboarding"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 login
               </ButtonSec>
               <ButtonPrimary
                 color={theme}
-                to="/register"
+                windowsize={windowsize}
+                to="/onboarding"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 Register

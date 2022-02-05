@@ -19,7 +19,7 @@ export const LandingWrapper = styled.div`
   }
 
   @media only screen and (max-width: 30em) {
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
     height: auto;
     flex-direction: column-reverse;
   }
@@ -34,7 +34,7 @@ export const LeftLanding = styled.div`
 
   @media only screen and (max-width: 85em) {
     height: 100%;
-    width: 60%;
+    width: 80%;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 5rem;
@@ -49,8 +49,8 @@ export const LeftLanding = styled.div`
   }
 `;
 export const RightLanding = styled.div`
-  @media only screen and (max-width: 30em) {
-    margin: 2rem auto 4rem auto;
+  @media only screen and (max-width: 50em) {
+    margin: 2rem 2rem 4rem 2rem;
   }
 `;
 
@@ -103,9 +103,9 @@ export const LiFeature = styled.li`
 
   @media only screen and (max-width: 85em) {
     width: 80%;
-    align-items: flex-start;
+    justify-content: center;
     gap: 2rem;
-    text-align: left;
+    text-align: center;
   }
 
   @media only screen and (max-width: 30em) {
@@ -114,6 +114,7 @@ export const LiFeature = styled.li`
 `;
 
 export const LiImage = styled.img`
+  display: ${({windowsize}) => (windowsize <= 1360 ? "none" : "default")};
   height: 25px;
   width: 25px;
   margin-right: 0.75rem;
@@ -138,8 +139,8 @@ export const CTA = styled(Link)`
 `;
 
 export const MainImage = styled.img`
-  @media only screen and (max-width: 30em) {
-    height: 100%;
+  @media only screen and (max-width: 50em) {
+    height: auto;
     width: 100%;
   }
 `;

@@ -16,7 +16,7 @@ import mainImg from "../images/main.svg";
 import mainImg1 from "../images/main-1.svg";
 import mainImg1Light from "../images/main-1-light.svg";
 
-const LandingPage = ({ theme }) => {
+const LandingPage = ({ theme, windowsize }) => {
   const mainImages = [mainImg, mainImg1];
   const [image, setImage] = useState(mainImg);
   const getRandomImage = () => {
@@ -45,6 +45,7 @@ const LandingPage = ({ theme }) => {
               <LiImage
                 src={theme === "dark" ? imgForLiLight : imgForLiDark}
                 alt=""
+                windowsize={windowsize}
               />{" "}
               Track your favourite cryptos
             </LiFeature>
@@ -52,6 +53,7 @@ const LandingPage = ({ theme }) => {
               <LiImage
                 src={theme === "dark" ? imgForLiLight : imgForLiDark}
                 alt=""
+                windowsize={windowsize}
               />{" "}
               View multiple charts of various coins
             </LiFeature>
@@ -59,6 +61,7 @@ const LandingPage = ({ theme }) => {
               <LiImage
                 src={theme === "dark" ? imgForLiLight : imgForLiDark}
                 alt=""
+                windowsize={windowsize}
               />{" "}
               Get the latest news about the market
             </LiFeature>
