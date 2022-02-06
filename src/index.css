@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 body {
