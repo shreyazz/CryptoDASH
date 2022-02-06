@@ -21,12 +21,12 @@ export const CryptoWrapper = styled.div`
 `;
 
 export const CardHolder = styled.div`
-  height: auto;
+  height: ${({loaded}) => loaded ? 'auto' : '100vh'};
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  align-items: center;
+  align-items: ${({loaded}) => loaded ? 'center' : 'flex-start'};
   margin-top: 1rem;
   margin-bottom: 6rem;
   flex-wrap: wrap;

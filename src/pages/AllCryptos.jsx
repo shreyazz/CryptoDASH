@@ -11,9 +11,13 @@ import {
   SelectCurrency,
   SelectDiv,
 } from "../StyledComponents/CryptoElements";
+
+import {CubeGrid} from 'better-react-spinkit';
+
 const AllCryptos = ({ theme, windowsize }) => {
   const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState("usd");
+
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins")
       .then((res) => res.json())
@@ -65,8 +69,10 @@ const AllCryptos = ({ theme, windowsize }) => {
             </ReloadButton>
           </div>
         </OverView>
-        <CardHolder color={theme}>
-          {coins.map((coin) => {
+        <CardHolder color={theme} loaded={coins.length === 0 ? false : true}>
+          {coins.length === 0 ? 
+          <div className="loading-spinner"><CubeGrid size={50} color={'#374E6A'} /></div> : 
+           coins.map((coin) => {
             return (
               <Card
                 currency={currency.toUpperCase()}
