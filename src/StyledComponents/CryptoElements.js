@@ -8,10 +8,10 @@ export const CryptoWrapper = styled.div`
   background: ${({ color }) => (color === "dark" ? "#1D3557" : "#F1FAEE")};
   justify-content: center;
   flex-wrap: wrap;
+  gap: 3rem;
   @media only screen and (max-width: 85em) {
     padding: 3rem 3rem;
     height: auto;
-    gap: 3rem;
   }
 
   @media only screen and (max-width: 30em) {
