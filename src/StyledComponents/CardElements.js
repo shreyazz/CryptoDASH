@@ -4,7 +4,7 @@ export const CardMain = styled.div`
   background: ${({ color }) => (color === "dark" ? "#1C3A63" : "#f8fff5")};
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
-  height: 100%;
+  /* height: 100%; */
   width: 300px;
   padding: 1rem;
 `;

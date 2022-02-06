@@ -27,7 +27,7 @@ export const NormalLink = styled(Link)`
   text-decoration: none;
   font-weight: 500;
   margin-left: 1.3rem;
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     margin-left: 0;
   }
 `;
@@ -43,7 +43,7 @@ export const ButtonPrimary = styled(Link)`
   font-weight: 600;
   margin-left: 1.5rem;
 
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     margin-top: 1.5rem;
     margin-left: 0;
     padding: 0.5rem 0.75rem;
@@ -61,7 +61,7 @@ export const ButtonSec = styled(Link)`
   border: 2px solid #457b9d;
   margin-left: 1.5rem;
   transition: all 0.4s ease;
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     padding: 0.4rem 0.75rem;
     margin-left: 0;
     margin-top: 1.5rem;
@@ -79,7 +79,7 @@ export const RightNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     display: none;
   }
 `;
@@ -88,7 +88,7 @@ export const HamBurger = styled(FaBars)`
   font-size: 23px;
   z-index: 4;
   display: none;
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     color: ${({ color }) => (color === "dark" ? "#E63946" : "#1D3557")};
     display: inline;
   }
@@ -99,7 +99,7 @@ export const Cross = styled(FaTimes)`
   display: none;
   z-index: 4;
 
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     color: ${({ color }) => (color === "dark" ? "#E63946" : "#1D3557")};
     display: inline;
   }
@@ -107,7 +107,7 @@ export const Cross = styled(FaTimes)`
 
 export const NavForMobile = styled.div`
   display: none;
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     color: ${({ color }) => (color === "dark" ? "#E63946" : "#1D3557")};
     position: absolute;
     top: 0;
@@ -124,7 +124,7 @@ export const NavForMobile = styled.div`
     padding: 2rem 0;
 
     > div:first-child {
-      margin-top: ${({windowsize}) => (windowsize < 800 && '1.5rem')};
+      margin-top: ${({windowsize}) => (windowsize < 848 && '1.5rem')};
     }
   }
 `;

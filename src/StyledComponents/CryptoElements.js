@@ -3,21 +3,23 @@ import { FaSync } from "react-icons/fa";
 
 export const CryptoWrapper = styled.div`
   /* height: 100%; */
+  display: flex;
   width: 100%;
   padding: 2rem;
   background: ${({ color }) => (color === "dark" ? "#1D3557" : "#F1FAEE")};
+  justify-content: center;
   flex-wrap: wrap;
   @media only screen and (max-width: 85em) {
-    padding: 3rem 1rem;
+    padding: 3rem 3rem;
     height: auto;
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
     gap: 3rem;
   }
 
   @media only screen and (max-width: 30em) {
-    padding: 3rem 1rem;
+    padding: 3rem 3rem;
     height: auto;
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
   }
 `;
 
@@ -26,19 +28,21 @@ export const CardHolder = styled.div`
   height: auto;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2.5rem;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 6rem;
   flex-wrap: wrap;
 `;
 
 export const OverView = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: ${({windowsize}) => (windowsize < 700 && 'column')};
+  gap: ${({windowsize}) => (windowsize < 700 && '1rem')};
   align-items: center;
   justify-content: space-between;
-  /* background: red; */
 `;
 
 export const HeadOverview = styled.h2`

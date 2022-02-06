@@ -11,7 +11,7 @@ import {
   SelectCurrency,
   SelectDiv,
 } from "../StyledComponents/CryptoElements";
-const AllCryptos = ({ theme }) => {
+const AllCryptos = ({ theme, windowsize }) => {
   const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState("usd");
   useEffect(() => {
@@ -28,7 +28,7 @@ const AllCryptos = ({ theme }) => {
   return (
     <>
       <CryptoWrapper color={theme}>
-        <OverView>
+        <OverView windowsize={windowsize}>
           <div>
             <HeadOverview color={theme}>All crypto currencies</HeadOverview>
             <LastUpdated color={theme}>
