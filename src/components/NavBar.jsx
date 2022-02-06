@@ -49,10 +49,19 @@ const NavBar = ({ theme, windowsize }) => {
                 <NormalLink
                   color={theme}
                   windowsize={windowsize}
-                  to="/crypto"
+                  to="/all-crypto"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   Crypto
+                </NormalLink>
+              </div>
+              <div>
+                <NormalLink 
+                  color={theme} 
+                  windowsize={windowsize} 
+                  to="/fav-crypto"
+                >
+                  Favourite Cryptos
                 </NormalLink>
               </div>
               <ButtonSec

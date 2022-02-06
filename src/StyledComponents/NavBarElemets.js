@@ -123,7 +123,7 @@ export const NavForMobile = styled.div`
     flex-direction: column;
     padding: 2rem 0;
 
-    > div:first-child {
+    > div {
       margin-top: ${({windowsize}) => (windowsize < 848 && '1.5rem')};
     }
   }
