@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { FaSync } from "react-icons/fa";
 
 export const CryptoWrapper = styled.div`
-  /* height: 100%; */
   display: flex;
   width: 100%;
   padding: 2rem;
@@ -12,19 +11,16 @@ export const CryptoWrapper = styled.div`
   @media only screen and (max-width: 85em) {
     padding: 3rem 3rem;
     height: auto;
-    /* flex-direction: column-reverse; */
     gap: 3rem;
   }
 
   @media only screen and (max-width: 30em) {
     padding: 3rem 3rem;
     height: auto;
-    /* flex-direction: column-reverse; */
   }
 `;
 
 export const CardHolder = styled.div`
-  /* height: 25vh; */
   height: auto;
   width: 100%;
   display: flex;
