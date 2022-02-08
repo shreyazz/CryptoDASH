@@ -93,12 +93,6 @@ export const GraphArea = styled.div`
   padding: 1rem;
 `;
 
-// export const LeftInfo = styled.div`
-//   /* background: blue; */
-//   width: 0;
-//   /* height: 100%; */
-// `;
-
 export const RightGraph = styled.div`
   /* background: green; */
   width: 100%;
@@ -106,4 +100,14 @@ export const RightGraph = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+`;
+
+export const GraphSelector = styled.div`
+  /* background: red; */
+  background: ${({ color }) => (color === "dark" ? "#F7F7F7" : "#374E6A")};
+
+  height: 30px;
+  width: 100px;
+  margin-right: 5rem;
+  border-radius: 2rem;
 `;

@@ -11,27 +11,17 @@ import {
   SelectCurrency,
   SelectDiv,
   GraphArea,
-  LeftInfo,
   RightGraph,
+  GraphSelector,
 } from "../StyledComponents/CryptoElements";
 import moment from "moment";
-
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Legend,
-  Tooltip,
-  AreaChart,
-  Area,
-} from "recharts";
+import LineGraph from "../components/LineGraph";
+import AreaGraph from "../components/AreaGraph";
 const Crypto = ({ theme }) => {
   const [cOnePrice, setCOnePirces] = useState([]);
   const [cTwoPrice, setCTwoPrices] = useState([]);
   const [cThreePrice, setCThreePrices] = useState([]);
+  const [graphType, setGraphType] = useState("line");
 
   // A dynamic function which takes
   // 1. crypto: bitcoin/solana
@@ -62,18 +52,17 @@ const Crypto = ({ theme }) => {
     { name: "usd-coin", var: cThreePrice, setVar: setCThreePrices },
   ];
 
-  // useEffect(() => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   const [coins, setCoins] = useState({});
   const [favCoins, setFavCoins] = useState([]);
   const [currency, setCurrency] = useState("usd");
   useEffect(() => {
+    //  calling the dynamic function
     favs.map((fav) => getDynamicCrypto(fav.name, fav.var, fav.setVar));
+
     fetch("https://api.coingecko.com/api/v3/coins")
       .then((res) => res.json())
       .then((res) => setCoins(res));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const getFavCoin = () => {
     setFavCoins(
@@ -89,9 +78,9 @@ const Crypto = ({ theme }) => {
 
   // graph data
 
-  let data2 = [];
+  let dataForGraph = [];
   for (let index = 0; index < 31; index++) {
-    data2.push({
+    dataForGraph.push({
       name: moment()
         .subtract(index + 1, "days")
         .format("MMM Do YY"),
@@ -139,6 +128,12 @@ const Crypto = ({ theme }) => {
                 <option value="gbp">GBP</option>
               </SelectCurrency>
             </SelectDiv>
+            {/* ! change graph type from this div... just like theme toggler */}
+            {/* ! set the setGraphType to line || area */}
+            <GraphSelector
+              onClick={() => setGraphType("area")}
+              color={theme}
+            ></GraphSelector>
             <ReloadButton color={theme} onClick={getFavCoin}>
               {" "}
               <SyncIcon color={theme} />{" "}
@@ -163,70 +158,11 @@ const Crypto = ({ theme }) => {
           })}
           <GraphArea>
             <RightGraph>
-              <ResponsiveContainer width="100%" height="80%">
-                <AreaChart
-                  width={1300}
-                  height={450}
-                  data={data2.reverse()}
-                  margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                >
-                  <defs>
-                    <linearGradient id="colorb" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#1184d8" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#1184d1" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colore" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colors" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#454f93" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#454f93" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <XAxis dataKey="name" angle="300" fontSize={"10px"} />
-                  <YAxis />
-                  <CartesianGrid strokeDasharray="4 4" />
-                  <Tooltip />
-                  <Area
-                    type="monotone"
-                    dataKey="cOne"
-                    stroke="#8884d8"
-                    fillOpacity={1}
-                    fill="url(#colorb)"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="cTwo"
-                    stroke="#82ca9d"
-                    fillOpacity={1}
-                    fill="url(#colore)"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="cThree"
-                    stroke="#122370"
-                    fillOpacity={1}
-                    fill="url(#colors)"
-                  />
-                </AreaChart>
-
-                {/* <LineChart
-                  // width={730}
-                  // height={250}
-                  data={data2}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="cOne" stroke="#1184d8" />
-                  <Line type="monotone" dataKey="cTwo" stroke="#82ca9d" />
-                  <Line type="monotone" dataKey="cThree" stroke="#454f93" />
-                </LineChart> */}
-              </ResponsiveContainer>
+              {graphType === "line" ? (
+                <LineGraph dataForGraph={dataForGraph} />
+              ) : (
+                <AreaGraph dataForGraph={dataForGraph} />
+              )}
             </RightGraph>
           </GraphArea>
         </CardHolder>
