@@ -14,6 +14,8 @@ import {
   LeftInfo,
   RightGraph,
 } from "../StyledComponents/CryptoElements";
+import moment from "moment";
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -40,7 +42,7 @@ const Crypto = ({ theme }) => {
     try {
       setCryptoVar([]);
       const api = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=inr&days=15&interval=daily`
+        `https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=inr&days=30&interval=daily`
       );
       const data = await api.json();
       const priceBe = [];
@@ -55,9 +57,9 @@ const Crypto = ({ theme }) => {
 
   // favourite cryptos array which includes all the needed keys:values
   const favs = [
-    { name: "solana", var: cOnePrice, setVar: setCOnePirces },
-    { name: "bitcoin", var: cTwoPrice, setVar: setCTwoPrices },
-    { name: "ethereum", var: cThreePrice, setVar: setCThreePrices },
+    { name: "ripple", var: cOnePrice, setVar: setCOnePirces },
+    { name: "cardano", var: cTwoPrice, setVar: setCTwoPrices },
+    { name: "usd-coin", var: cThreePrice, setVar: setCThreePrices },
   ];
 
   // useEffect(() => {
@@ -87,22 +89,17 @@ const Crypto = ({ theme }) => {
 
   // graph data
 
-  const data = [
-    {
-      name: "Page A",
-      b: 4000,
-      e: 2400,
-      s: 2000,
-      d: 120,
-    },
-    {
-      name: "Page B",
-      b: 3000,
-      e: 2100,
-      s: 2400,
-      d: 220,
-    },
-  ];
+  let data2 = [];
+  for (let index = 0; index < 31; index++) {
+    data2.push({
+      name: moment()
+        .subtract(index + 1, "days")
+        .format("MMM Do YY"),
+      cOne: favs[0].var[index],
+      cTwo: favs[1].var[index],
+      cThree: favs[2].var[index],
+    });
+  }
 
   // graph data ends
 
@@ -170,60 +167,65 @@ const Crypto = ({ theme }) => {
                 <AreaChart
                   width={1300}
                   height={450}
-                  data={data}
+                  data={data2.reverse()}
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
                 >
                   <defs>
                     <linearGradient id="colorb" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#1184d8" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="#1184d1" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colore" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
                       <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colors" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#122370" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#122370" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colord" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#124a9d" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#124a9d" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#454f93" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="#454f93" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <XAxis dataKey="name" />
+                  <XAxis dataKey="name" angle="300" fontSize={"10px"} />
                   <YAxis />
-                  <CartesianGrid strokeDasharray="3 3" />
+                  <CartesianGrid strokeDasharray="4 4" />
                   <Tooltip />
                   <Area
                     type="monotone"
-                    dataKey="b"
+                    dataKey="cOne"
                     stroke="#8884d8"
                     fillOpacity={1}
                     fill="url(#colorb)"
                   />
                   <Area
                     type="monotone"
-                    dataKey="e"
+                    dataKey="cTwo"
                     stroke="#82ca9d"
                     fillOpacity={1}
                     fill="url(#colore)"
                   />
                   <Area
                     type="monotone"
-                    dataKey="s"
+                    dataKey="cThree"
                     stroke="#122370"
                     fillOpacity={1}
                     fill="url(#colors)"
                   />
-                  <Area
-                    type="monotone"
-                    dataKey="d"
-                    stroke="#124a9d"
-                    fillOpacity={1}
-                    fill="url(#colord)"
-                  />
                 </AreaChart>
+
+                {/* <LineChart
+                  // width={730}
+                  // height={250}
+                  data={data2}
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="cOne" stroke="#1184d8" />
+                  <Line type="monotone" dataKey="cTwo" stroke="#82ca9d" />
+                  <Line type="monotone" dataKey="cThree" stroke="#454f93" />
+                </LineChart> */}
               </ResponsiveContainer>
             </RightGraph>
           </GraphArea>
