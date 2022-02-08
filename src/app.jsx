@@ -19,23 +19,41 @@ const App = () => {
     isDark ? setTheme("dark") : setTheme("light");
   }, [isDark]);
 
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     setWindowSize(window.innerWidth);
     setWindowHeight(window.innerHeight);
-  })
+  });
 
   return (
     <>
       <NavBar theme={theme} windowsize={windowSize} />
       <Routes>
-        <Route path="/" index element={<LandingPage theme={theme} windowsize={windowSize} />} />
-        <Route path="/fav-crypto" index element={<Crypto theme={theme} windowsize={windowSize} />} />
+        <Route
+          path="/"
+          index
+          element={<LandingPage theme={theme} windowsize={windowSize} />}
+        />
+        <Route
+          path="/fav-crypto"
+          index
+          element={<Crypto theme={theme} windowsize={windowSize} />}
+        />
         <Route
           path="/all-crypto"
           index
           element={<AllCryptos theme={theme} windowsize={windowSize} />}
         />
-        <Route path="/onboarding" index element={<LoginReg theme={theme} windowsize={windowSize} windowheight={windowHeight} />} />
+        <Route
+          path="/onboarding"
+          index
+          element={
+            <LoginReg
+              theme={theme}
+              windowsize={windowSize}
+              windowheight={windowHeight}
+            />
+          }
+        />
         <Route path="*" element={<div>404 Page Not Found</div>} />
       </Routes>
       <div
