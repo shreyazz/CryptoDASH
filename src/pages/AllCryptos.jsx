@@ -67,11 +67,12 @@ const AllCryptos = ({ theme, windowsize }) => {
               {" "}
               <SyncIcon color={theme} />{" "}
             </ReloadButton>
+          
           </div>
         </OverView>
         <CardHolder color={theme} loaded={coins.length === 0 ? false : true}>
-          {coins.length === 0 ? 
-          <div className="loading-spinner"><CubeGrid size={50} color={'#374E6A'} /></div> : 
+          {coins.length === 0 ?
+          <div className="loading-spinner"><CubeGrid size={50} color={'#374E6A'} /></div> :
            coins.map((coin) => {
             return (
               <Card
