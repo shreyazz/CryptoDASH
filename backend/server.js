@@ -12,6 +12,7 @@ app.use(express.json());
 // using routes
 app.use("/register", require("./routes/register"));
 app.use("/login", require("./routes/login"));
+app.use("/getFavCryptos", require("./routes/favCryptos"));
 
 // server listening on PORT
 app.listen(PORT, () => {
