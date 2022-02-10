@@ -21,7 +21,13 @@ router.post("/", async (req, res) => {
       return res.json({ error: "Please input valid credentials " });
     }
 
-    const token = jwt.sign({ user: user }, "secretCode");
+    const token = jwt.sign(
+      {
+        favCryptos: user.favCryptos,
+        email: user.email,
+      },
+      "secretCode"
+    );
     res.json({
       message: "user is logged in 🟢",
       info: {
@@ -34,6 +40,4 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Some error occured 🔴" });
   }
 });
-;
-
 module.exports = router;

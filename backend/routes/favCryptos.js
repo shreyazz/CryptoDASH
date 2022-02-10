@@ -13,13 +13,10 @@ router.post("/", verifyToken, (req, res) => {
       res
         .status(403)
         .json({ error: "some error occured in /getFavCryptos 🔴" });
-    } else {
-      res.json(user);
-      //   const userFromDB = User.findOne({ email: user.email });
-      //   if (userFromDB) {
-      //   res.json(userFromDB.favCryptos);
-      //   }
     }
+    const favCryptos = user.favCryptos; //user's favCryptos
+    const userEmail = user.email; // user's email
+    res.json({ favCryptos, userEmail });
   });
 });
 
